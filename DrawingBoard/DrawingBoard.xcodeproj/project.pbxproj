@@ -17,6 +17,7 @@
 		CF1837C91CCB4E6C006FD17C /* DrawingBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1837C81CCB4E6C006FD17C /* DrawingBoardTests.m */; };
 		CF1837D41CCB4E6C006FD17C /* DrawingBoardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1837D31CCB4E6C006FD17C /* DrawingBoardUITests.m */; };
 		CF1837E31CCB50EC006FD17C /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1837E21CCB50EC006FD17C /* DrawView.m */; };
+		CF1837E61CCB5D71006FD17C /* LinePath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1837E51CCB5D71006FD17C /* LinePath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		CF1837D51CCB4E6C006FD17C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF1837E11CCB50EC006FD17C /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		CF1837E21CCB50EC006FD17C /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		CF1837E41CCB5D71006FD17C /* LinePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePath.h; sourceTree = "<group>"; };
+		CF1837E51CCB5D71006FD17C /* LinePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinePath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				CF1837AC1CCB4E6C006FD17C /* main.m */,
+				CF1837E41CCB5D71006FD17C /* LinePath.h */,
+				CF1837E51CCB5D71006FD17C /* LinePath.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				CF1837B91CCB4E6C006FD17C /* DrawingBoard.xcdatamodeld in Sources */,
 				CF1837B01CCB4E6C006FD17C /* AppDelegate.m in Sources */,
 				CF1837AD1CCB4E6C006FD17C /* main.m in Sources */,
+				CF1837E61CCB5D71006FD17C /* LinePath.m in Sources */,
 				CF1837E31CCB50EC006FD17C /* DrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

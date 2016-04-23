@@ -7,25 +7,42 @@
 //
 
 #import "DrawView.h"
-
+#import "LinePath.h"
 @interface DrawView ()
 
-@property(nonatomic,assign)CGPoint curP;
+@property(nonatomic,strong)LinePath* path;
 
-@property(nonatomic,assign)CGPoint startP;
+@property(nonatomic,strong)NSMutableArray* linePaths;
 
 @end
 @implementation DrawView
 
+-(NSMutableArray *)linePaths{
+    if (_linePaths==nil) {
+        _linePaths=[NSMutableArray array];
+    }
+    return _linePaths;
+}
+
+//路径不一定要在drawRcet中画，但是一定要在drawRect中stoke
 -(IBAction)pan:(UIPanGestureRecognizer*)pan{
     
+    CGPoint curP=[pan locationInView:self];
+    
     if (pan.state==UIGestureRecognizerStateBegan) {
-        self.startP=[pan locationInView:self];
-    }else if(pan.state==UIGestureRecognizerStateChanged){
-        self.curP=[pan locationInView:self];
-    }else if (pan.state==UIGestureRecognizerStateEnded){
+        
+        self.path=[[LinePath alloc]init];
+        
+        self.path.lineW=self.lineW;
+        self.path.lineC=self.lineC;
+        
+        [self.path moveToPoint:curP];
+        
+        [self.linePaths addObject:self.path];
         
     }
+    
+    [self.path addLineToPoint:curP];
     
     [self setNeedsDisplay];
     
@@ -33,15 +50,15 @@
 
 - (void)drawRect:(CGRect)rect {
     
-    UIBezierPath* path=[UIBezierPath bezierPath];
-    
-    [path moveToPoint:_startP];
-    
-    [path addLineToPoint:_curP];
-    
-    [path stroke];
-    
-    
+    for (LinePath* path in self.linePaths) {
+        
+        [path.lineC set];
+        
+        path.lineWidth=path.lineW;
+        
+        [path stroke];
+        
+    }
 }
 
 @end
