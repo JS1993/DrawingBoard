@@ -12,5 +12,12 @@
 
 @property(nonatomic,assign)CGFloat lineW;
 @property(nonatomic,strong)UIColor* lineC;
+@property(nonatomic,strong)UIImage* imageX;
+
+-(void)clear;
+
+-(void)undo;
+
+-(void)easer;
 
 @end

@@ -15,7 +15,17 @@
 @property(nonatomic,strong)NSMutableArray* linePaths;
 
 @end
+
 @implementation DrawView
+
+
+-(void)setImageX:(UIImage *)imageX{
+    _imageX=imageX;
+    
+    [self.linePaths addObject:imageX];
+    
+    [self setNeedsDisplay];
+}
 
 -(NSMutableArray *)linePaths{
     if (_linePaths==nil) {
@@ -31,9 +41,11 @@
     
     if (pan.state==UIGestureRecognizerStateBegan) {
         
+        //创建路径并添加到数组，防止被销毁
         self.path=[[LinePath alloc]init];
         
-        self.path.lineW=self.lineW;
+        self.path.lineWidth=self.lineW;
+        
         self.path.lineC=self.lineC;
         
         [self.path moveToPoint:curP];
@@ -50,15 +62,46 @@
 
 - (void)drawRect:(CGRect)rect {
     
+    //遍历数组绘制所有路径
     for (LinePath* path in self.linePaths) {
-        
-        [path.lineC set];
-        
-        path.lineWidth=path.lineW;
-        
-        [path stroke];
+        //如果路径是图片，则绘制图片
+        if ([path isKindOfClass:[UIImage class]]) {
+            
+            [(UIImage*)path drawInRect:rect];
+            
+        }else{
+            
+            [path.lineC set];
+            
+            [path stroke];
+        }
         
     }
+}
+/**  清除功能*/
+-(void)clear{
+    
+    [self.linePaths removeAllObjects];
+    
+    [self setNeedsDisplay];
+}
+
+/** 撤销功能*/
+-(void)undo{
+    
+    [self.linePaths removeLastObject];
+    
+    [self setNeedsDisplay];
+    
+}
+
+/** 橡皮擦功能 */
+-(void)easer{
+    
+    self.lineC=[UIColor whiteColor];
+    
+    self.lineW=10;
+    
 }
 
 @end

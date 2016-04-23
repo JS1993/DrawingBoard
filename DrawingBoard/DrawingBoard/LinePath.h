@@ -10,7 +10,6 @@
 
 @interface LinePath : UIBezierPath
 
-@property(nonatomic,assign)CGFloat lineW;
 @property(nonatomic,strong)UIColor* lineC;
 
 @end
