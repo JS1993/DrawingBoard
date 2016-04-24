@@ -85,7 +85,7 @@
     
     self.imageV.transform=CGAffineTransformScale(self.imageV.transform, scale, scale);
     
-    scale=1.0;
+    pinch.scale=1.0;
     
 }
 
@@ -96,7 +96,7 @@
     
     self.imageV.transform=CGAffineTransformRotate(self.imageV.transform, rotation);
     
-    rotation=0;
+    rotate.rotation=0;
 }
 
 #pragma mark--长按手势
