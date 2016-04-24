@@ -82,6 +82,14 @@
     
     HandView* handView=[[HandView alloc]initWithFrame:self.DrawView.bounds];
     
+    handView.HaneBeginBlock=^{
+        self.DrawView.userInteractionEnabled=NO;
+    };
+    
+    handView.HandCompetionBlock=^(UIImage* image){
+        self.DrawView.imageX=image;
+        
+    };
      [self.DrawView addSubview:handView];
     
      handView.imageX=image;

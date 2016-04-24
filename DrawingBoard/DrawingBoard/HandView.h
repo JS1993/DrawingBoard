@@ -12,4 +12,8 @@
 
 @property(nonatomic,strong)UIImageView* imageV;
 @property(nonatomic,strong)UIImage* imageX;
+
+@property(nonatomic,strong) void(^HandCompetionBlock)(UIImage* image);
+@property(nonatomic,strong) void (^HaneBeginBlock)();
+
 @end

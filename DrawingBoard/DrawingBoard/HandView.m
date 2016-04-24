@@ -36,12 +36,21 @@
     _imageX=imageX;
     
     self.imageV.image=imageX;
+
 }
 
+#pragma mark--拦截手势
+-(void)panHandle:(UIPanGestureRecognizer*)panHandle{
+    
+}
+
+#pragma mark--给imageView添加各种手势
 -(void)setUpGesture{
     
+    UIPanGestureRecognizer* panHandle=[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHandle:)];
+    [self addGestureRecognizer:panHandle];
+    
     UIPanGestureRecognizer* pan=[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pan:)];
-    pan.delegate=self;
     [_imageV addGestureRecognizer:pan];
     
     UIPinchGestureRecognizer* pinch=[[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(pinch:)];
@@ -60,11 +69,11 @@
 #pragma mark--拖动手式
 -(void)pan:(UIPanGestureRecognizer*)pan{
     
-    CGPoint transP=[pan translationInView:self];
+    CGPoint transP=[pan translationInView:self.imageV];
     
     self.imageV.transform=CGAffineTransformTranslate(self.imageV.transform, transP.x, transP.y);
     
-    transP=CGPointZero;
+    [pan setTranslation:CGPointZero inView:self.imageV];
     
 }
 
@@ -93,7 +102,34 @@
 #pragma mark--长按手势
 -(void)longPress:(UILongPressGestureRecognizer*)longPress{
     
-    
+    if (longPress.state==UIGestureRecognizerStateBegan) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.imageV.alpha=0;
+        } completion:^(BOOL finished) {
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                self.imageV.alpha=1;
+            } completion:^(BOOL finished) {
+                
+                UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+                
+                CGContextRef ctx=UIGraphicsGetCurrentContext();
+                
+                [self.layer renderInContext:ctx];
+                
+                UIImage* image=UIGraphicsGetImageFromCurrentImageContext();
+                
+                if (_HandCompetionBlock) {
+                    _HandCompetionBlock(image);
+                }
+                
+                UIGraphicsEndImageContext();
+                
+                [self removeFromSuperview];
+                
+            }];
+        }];
+    }
 }
 
 #pragma mark--多手势共存 代理方法
