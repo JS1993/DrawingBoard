@@ -18,6 +18,7 @@
 		CF1837D41CCB4E6C006FD17C /* DrawingBoardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1837D31CCB4E6C006FD17C /* DrawingBoardUITests.m */; };
 		CF1837E31CCB50EC006FD17C /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1837E21CCB50EC006FD17C /* DrawView.m */; };
 		CF1837E61CCB5D71006FD17C /* LinePath.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1837E51CCB5D71006FD17C /* LinePath.m */; };
+		CF1BD9CD1CCCDA0200EE932F /* HandView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1BD9CC1CCCDA0200EE932F /* HandView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		CF1837E21CCB50EC006FD17C /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		CF1837E41CCB5D71006FD17C /* LinePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePath.h; sourceTree = "<group>"; };
 		CF1837E51CCB5D71006FD17C /* LinePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinePath.m; sourceTree = "<group>"; };
+		CF1BD9CB1CCCDA0200EE932F /* HandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandView.h; sourceTree = "<group>"; };
+		CF1BD9CC1CCCDA0200EE932F /* HandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				CF1837AB1CCB4E6C006FD17C /* Supporting Files */,
 				CF1837E11CCB50EC006FD17C /* DrawView.h */,
 				CF1837E21CCB50EC006FD17C /* DrawView.m */,
+				CF1BD9CB1CCCDA0200EE932F /* HandView.h */,
+				CF1BD9CC1CCCDA0200EE932F /* HandView.m */,
 			);
 			path = DrawingBoard;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF1837B31CCB4E6C006FD17C /* ViewController.m in Sources */,
+				CF1BD9CD1CCCDA0200EE932F /* HandView.m in Sources */,
 				CF1837B91CCB4E6C006FD17C /* DrawingBoard.xcdatamodeld in Sources */,
 				CF1837B01CCB4E6C006FD17C /* AppDelegate.m in Sources */,
 				CF1837AD1CCB4E6C006FD17C /* main.m in Sources */,
@@ -515,6 +521,7 @@
 				CF1837DA1CCB4E6C006FD17C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF1837DB1CCB4E6C006FD17C /* Build configuration list for PBXNativeTarget "DrawingBoardTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +530,7 @@
 				CF1837DD1CCB4E6C006FD17C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF1837DE1CCB4E6C006FD17C /* Build configuration list for PBXNativeTarget "DrawingBoardUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +539,7 @@
 				CF1837E01CCB4E6C006FD17C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

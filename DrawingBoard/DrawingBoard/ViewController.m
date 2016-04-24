@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DrawView.h"
+#import "HandView.h"
 @interface ViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UISlider *lineWSlider;
@@ -77,7 +78,13 @@
 #pragma mark-imagePickerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
-    self.DrawView.imageX=info[UIImagePickerControllerOriginalImage];
+    UIImage* image= info[UIImagePickerControllerOriginalImage];
+    
+    HandView* handView=[[HandView alloc]initWithFrame:self.DrawView.bounds];
+    
+     [self.DrawView addSubview:handView];
+    
+     handView.imageX=image;
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -104,6 +111,8 @@
     
     self.lineWSlider.value=0.15;
      self.DrawView.lineW=self.lineWSlider.value*20;
+    
+    self.DrawView.backgroundColor=[UIColor clearColor];
 }
 
 
